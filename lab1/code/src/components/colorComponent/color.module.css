@@ -1,0 +1,39 @@
+.wrapper {
+	padding: 0 10px;
+}
+.modelTitle {
+	padding: 10px;
+	font-size: 25px;
+}
+.input {
+	width: 100px;
+}
+.modelParameterContainer {
+	padding: 7px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+}
+.colorMonitor {
+	grid-column-start: 3;
+	grid-row-start: 1;
+	width: 350px;
+	aspect-ratio: 1/1;
+	border: 4px solid rgb(0, 0, 0);
+}
+.paletteContainer {
+	grid-column-start: 3;
+	grid-row-start: 2;
+}
+
+.wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 10px;
+}
+
+.wrapper > * {
+	justify-self: center;
+	align-self: center;
+}
