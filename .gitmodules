@@ -1,0 +1,3 @@
+[submodule "lab2/code/img/samples/data"]
+	path = lab2/code/img/samples/data
+	url = https://github.com/opencv/opencv
