@@ -4,6 +4,7 @@ from PIL import Image, ImageTk
 import os
 import cv2
 import numpy as np
+import matplotlib.pyplot as plt
 
 window = Tk()
 window.configure(bg="black")
@@ -125,6 +126,14 @@ def analyze_histogram():
     global current_image_label
     show_image(converted_image, "histogram_" +
                current_image_label.cget("text"), False)
+    histogram = cv2.calcHist([cv2.cvtColor(current_image, cv2.COLOR_BGR2GRAY)], [
+                             0], None, [256], [0, 256])
+    plt.figure()
+    plt.title('Histogram')
+    plt.xlabel('Pixel Value')
+    plt.ylabel('Frequency')
+    plt.plot(histogram)
+    plt.show()
 
 
 otsu_button = Button(threshold_frame, text="Otsu",
