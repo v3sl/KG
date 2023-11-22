@@ -1,0 +1,42 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	width: 100%;
+	height: 100vh;
+}
+
+.utilsContainer {
+	padding-top: 30px;
+	width: 100%;
+}
+
+.inputContainer {
+	display: flex;
+	justify-content: space-around;
+}
+
+.inputField {
+	width: 300px;
+}
+
+.buttonsContainer {
+	margin-top: 30px;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.buttonText {
+	font-size: 20px;
+}
+
+.canvasContainer {
+	margin-top: 35px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
