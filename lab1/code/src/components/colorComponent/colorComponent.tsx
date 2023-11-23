@@ -101,7 +101,7 @@ export const ColorComponent: React.FC = observer(() => {
 				}}
 			/>
 			<div className={styles.paletteContainer}>
-				<section className='pallette'>
+				<section className='palette'>
 					<HsvColorPicker
 						color={{
 							h: color.color.hsv.hue,
