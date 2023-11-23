@@ -122,11 +122,7 @@ export const App: React.FC = () => {
 				needLog && console.log('(' + x2 + ', ' + y2 + '), выход из цикла');
 				break;
 			}
-			if (2 * error >= dy) {
-				if (x1 == x2) {
-					needLog && console.log('x1');
-					break;
-				}
+			if (2 * error >= dy && x1 !== x2) {
 				needLog &&
 					console.log(
 						error -
@@ -139,11 +135,7 @@ export const App: React.FC = () => {
 				error += dy;
 				x1 += sx;
 			}
-			if (2 * error <= dx) {
-				if (y1 == y2) {
-					needLog && console.log('y1');
-					break;
-				}
+			if (2 * error <= dx && y1 !== y2) {
 				needLog &&
 					console.log(
 						error -
@@ -189,7 +181,7 @@ export const App: React.FC = () => {
 			if (Math.abs(dx) > Math.abs(dy)) {
 				needLog && console.log('|dx| > |dy| => x от ' + x1 + ' до ' + x2);
 				for (let x = x1; x <= x2; x += step) {
-					const temp = Math.floor((y1 + (dy * (x - x1)) / dx) / step) * step; //floor
+					const temp = Math.round((y1 + (dy * (x - x1)) / dx) / step) * step; // or floor
 					needLog &&
 						console.log(
 							'y (для x = ' +
@@ -211,7 +203,7 @@ export const App: React.FC = () => {
 				}
 				needLog && console.log('|dy| >= |dx| => y от ' + y1 + ' до ' + y2);
 				for (let y = y1; y <= y2; y += step) {
-					const temp = Math.floor(((dx / dy) * (y - y1) + x1) / step) * step; //floor
+					const temp = Math.round(((dx / dy) * (y - y1) + x1) / step) * step; // or floor
 					needLog &&
 						console.log(
 							'x (для y = ' +
@@ -236,6 +228,7 @@ export const App: React.FC = () => {
 	}
 
 	const drawLineByPoints = (points: number[][]) => {
+		console.log(points);
 		const canvas = canvasRef.current;
 		if (!canvas) return;
 		const ctx = canvas.getContext('2d');
@@ -308,7 +301,7 @@ export const App: React.FC = () => {
 						className={styles.button}
 						variant='contained'
 						onClick={() => {
-							runStepByStep(line.x1, line.y1, line.x2, line.y2, 1, true);
+							runStepByStep(line.x1, line.y1, line.x2, line.y2, 1, true); // so bad =(
 							const point = runStepByStep(
 								line.x1 * GRID_SIZE + 3 * GRID_SIZE,
 								line.y1 * GRID_SIZE + 3 * GRID_SIZE,
@@ -340,7 +333,7 @@ export const App: React.FC = () => {
 						className={styles.button}
 						variant='contained'
 						onClick={() => {
-							runBresenham(line.x1, line.y1, line.x2, line.y2, 1, true);
+							runBresenham(line.x1, line.y1, line.x2, line.y2, 1, true); // so bad =(
 							const points = runBresenham(
 								line.x1 * GRID_SIZE + 3 * GRID_SIZE,
 								line.y1 * GRID_SIZE + 3 * GRID_SIZE,
@@ -359,7 +352,7 @@ export const App: React.FC = () => {
 				<canvas
 					ref={canvasRef}
 					width={1217}
-					height={657}
+					height={561}
 					className={styles.canvas}
 				/>
 			</div>
